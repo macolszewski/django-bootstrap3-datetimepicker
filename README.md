@@ -20,7 +20,7 @@ it now has the following breaking changes:
 #### forms.py
 
 ```python
-from bootstrap3_datetime.widgets import DateTimePicker
+from bootstrap4_datetime.widgets import DateTimePicker
 from django import forms
 
   class ToDoForm(forms.Form):

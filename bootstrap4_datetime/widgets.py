@@ -42,9 +42,11 @@ class DateTimePicker(DateTimeInput):
     html_template = """
     <div%(div_attrs)s>
       <input%(input_attrs)s/>
-      <span class="input-group-addon">
-        <span%(icon_attrs)s></span>
-      </span>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button">
+          <span%(icon_attrs)s></span>
+        </button>
+      </div>
     </div>"""
 
     js_template = """
@@ -56,7 +58,7 @@ class DateTimePicker(DateTimeInput):
 
     def __init__(self, attrs=None, format=None, options=None, div_attrs=None, icon_attrs=None):
         if not icon_attrs:
-            icon_attrs = {'class': 'glyphicon glyphicon-calendar'}
+            icon_attrs = {'class': 'fa fa-calendar'}
         if not div_attrs:
             div_attrs = {'class': 'input-group date'}
         if format is None and options and options.get('format'):
@@ -74,7 +76,7 @@ class DateTimePicker(DateTimeInput):
             if format and not self.options.get('format') and not self.attrs.get('date-format'):
                 self.options['format'] = self.conv_datetime_format_py2js(format)
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         if value is None:
             value = ''
         input_attrs = self.build_attrs(attrs, extra_attrs={'type': self.input_type, 'name': name})

@@ -7,11 +7,11 @@ if 'upload' in sys.argv or 'register' in sys.argv:
     long_description = pypandoc.convert('README.md', 'rst')
 
 setup(
-    name='django-bootstrap3-datetimepicker-2',
-    packages=['bootstrap3_datetime'],
+    name='django-bootstrap4-datetimepicker',
+    packages=['bootstrap4_datetime'],
     include_package_data=True,
     version='2.4.2',
-    description='Bootstrap3 compatible datetimepicker for Django projects.',
+    description='Bootstrap4 compatible datetimepicker for Django projects.',
     long_description=long_description,
     author='Nakahara Kunihiko/Samuel Colvin',
     author_email='nakahara.kunihiko@gmail.com/s@muelcolvin.com',
